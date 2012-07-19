@@ -773,7 +773,7 @@ class OAuth2 {
 			throw new OAuth2ServerException(self::HTTP_BAD_REQUEST, self::ERROR_INVALID_CLIENT, 'Client id was not found in the headers or body');
 		} else {
 			// This method is not recommended, but is supported by specification
-			return array($inputData['client_id'], $inputData['client_secret']);
+			return array($inputData['client_id'], isset($inputData['client_secret']) ? $inputData['client_secret'] : null);
 		}
 	}
 
